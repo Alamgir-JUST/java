@@ -1,0 +1,46 @@
+
+import java.util.Scanner;
+
+public class b_search {
+	public static int binary_search(int[] arr, int n, int v) {
+		int f=0;
+		int l = n-1;
+		
+		while(f<=l) {
+			int mid = f + (l-f)/2;
+			
+			if(arr[mid] == v) {
+				return mid;
+			}
+			
+			if(arr[mid]<v) {
+				f = mid+1;
+			}else {
+				l = mid-1;
+			}
+		}
+		
+		int ck = -1;
+		return ck;
+	}
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter how many numbers: ");
+		int n = sc.nextInt();
+		int[] arr = new int[n];
+		System.out.println("Enter each numbers:");
+		for(int i=0;i<n;i++) {
+			arr[i] = sc.nextInt();
+		}
+		System.out.println("Enter the searching value: ");
+		int v = sc.nextInt();
+		int res = binary_search(arr, n, v);
+		
+		if(res == -1) {
+			System.out.println("Not Found\n\n");
+		}else {
+			System.out.println("Found at position: "+(res+1));
+		}
+	}
+}
